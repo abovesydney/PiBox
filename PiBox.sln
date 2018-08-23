@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiBox", "PiBox\PiBox.csproj", "{68747F14-6E99-4401-9102-3AC243971784}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68747F14-6E99-4401-9102-3AC243971784}.Debug|ARM.ActiveCfg = Debug|ARM
+		{68747F14-6E99-4401-9102-3AC243971784}.Debug|ARM.Build.0 = Debug|ARM
+		{68747F14-6E99-4401-9102-3AC243971784}.Debug|ARM.Deploy.0 = Debug|ARM
+		{68747F14-6E99-4401-9102-3AC243971784}.Debug|x64.ActiveCfg = Debug|x64
+		{68747F14-6E99-4401-9102-3AC243971784}.Debug|x64.Build.0 = Debug|x64
+		{68747F14-6E99-4401-9102-3AC243971784}.Debug|x64.Deploy.0 = Debug|x64
+		{68747F14-6E99-4401-9102-3AC243971784}.Debug|x86.ActiveCfg = Debug|x86
+		{68747F14-6E99-4401-9102-3AC243971784}.Debug|x86.Build.0 = Debug|x86
+		{68747F14-6E99-4401-9102-3AC243971784}.Debug|x86.Deploy.0 = Debug|x86
+		{68747F14-6E99-4401-9102-3AC243971784}.Release|ARM.ActiveCfg = Release|ARM
+		{68747F14-6E99-4401-9102-3AC243971784}.Release|ARM.Build.0 = Release|ARM
+		{68747F14-6E99-4401-9102-3AC243971784}.Release|ARM.Deploy.0 = Release|ARM
+		{68747F14-6E99-4401-9102-3AC243971784}.Release|x64.ActiveCfg = Release|x64
+		{68747F14-6E99-4401-9102-3AC243971784}.Release|x64.Build.0 = Release|x64
+		{68747F14-6E99-4401-9102-3AC243971784}.Release|x64.Deploy.0 = Release|x64
+		{68747F14-6E99-4401-9102-3AC243971784}.Release|x86.ActiveCfg = Release|x86
+		{68747F14-6E99-4401-9102-3AC243971784}.Release|x86.Build.0 = Release|x86
+		{68747F14-6E99-4401-9102-3AC243971784}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BEFCBF7C-912A-4A20-BA7F-E115FF98864E}
+	EndGlobalSection
+EndGlobal
