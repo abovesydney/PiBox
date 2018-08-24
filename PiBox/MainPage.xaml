@@ -9,6 +9,21 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Button Content="Retry" HorizontalAlignment="Left" Margin="91,64,0,0" VerticalAlignment="Top" Tapped="_DoRetry" Height="48" Width="81"/>
+        <ListView x:Name="FlightList" Margin="0,117,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" IsItemClickEnabled="True" SelectionChanged="_pickFlight" Height="473" Width="932">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel x:Name="ugh" Orientation="Horizontal">
+                        <TextBlock x:Name="ICAO" Text="{Binding Icao, Mode=TwoWay}" Margin="5" IsHitTestVisible="True" />
+                        <TextBlock x:Name="OpICAO" Text="{Binding OpIcao}" Margin="5" />
+                        <TextBlock x:Name="Operator" Text="{Binding Op}" Margin="5" />
+                        <TextBlock x:Name="Country" Text="{Binding Cou}" Margin="5" />
+                        <TextBlock x:Name="Model" Text="{Binding Mdl}" Margin="5" />
+                        <Image x:Name="URI" Source="{Binding FullUri}" Width="85" Height="20"/>
+                        <TextBlock x:Name="Registration" Text="{Binding Reg}" Margin="5" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="JsonObjects.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -116,10 +117,156 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="Assets\logos\logos.tar" />
     <None Include="PiBox_TemporaryKey.pfx" />
     <PRIResource Include="Strings\en-AU\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\logos\.png" />
+    <Content Include="Assets\logos\7C01C0.png" />
+    <Content Include="Assets\logos\7C01C1.png" />
+    <Content Include="Assets\logos\7C01C2.png" />
+    <Content Include="Assets\logos\7C3FDF.png" />
+    <Content Include="Assets\logos\7C41D9.png" />
+    <Content Include="Assets\logos\7C41DE.png" />
+    <Content Include="Assets\logos\7C4487.png" />
+    <Content Include="Assets\logos\7C498F.png" />
+    <Content Include="Assets\logos\7C499C.png" />
+    <Content Include="Assets\logos\7C6078.png" />
+    <Content Include="Assets\logos\7C681D.png" />
+    <Content Include="Assets\logos\A2594E.png" />
+    <Content Include="Assets\logos\AAL.png" />
+    <Content Include="Assets\logos\AAR.png" />
+    <Content Include="Assets\logos\ACA.png" />
+    <Content Include="Assets\logos\ACI.png" />
+    <Content Include="Assets\logos\AIC.png" />
+    <Content Include="Assets\logos\ANA.png" />
+    <Content Include="Assets\logos\ANG.png" />
+    <Content Include="Assets\logos\ANZ.png" />
+    <Content Include="Assets\logos\ASY.png" />
+    <Content Include="Assets\logos\AVN.png" />
+    <Content Include="Assets\logos\BAW.png" />
+    <Content Include="Assets\logos\biglogos\AAL.png" />
+    <Content Include="Assets\logos\biglogos\AAR.png" />
+    <Content Include="Assets\logos\biglogos\ACA.png" />
+    <Content Include="Assets\logos\biglogos\ACI.png" />
+    <Content Include="Assets\logos\biglogos\AIC.png" />
+    <Content Include="Assets\logos\biglogos\ANA.png" />
+    <Content Include="Assets\logos\biglogos\ANG.png" />
+    <Content Include="Assets\logos\biglogos\ANZ.png" />
+    <Content Include="Assets\logos\biglogos\ASY.png" />
+    <Content Include="Assets\logos\biglogos\AVN.png" />
+    <Content Include="Assets\logos\biglogos\BAW.png" />
+    <Content Include="Assets\logos\biglogos\CAL.png" />
+    <Content Include="Assets\logos\biglogos\CCA.png" />
+    <Content Include="Assets\logos\biglogos\CEB.png" />
+    <Content Include="Assets\logos\biglogos\CES.png" />
+    <Content Include="Assets\logos\biglogos\CHH.png" />
+    <Content Include="Assets\logos\biglogos\CPA.png" />
+    <Content Include="Assets\logos\biglogos\CSC.png" />
+    <Content Include="Assets\logos\biglogos\CSN.png" />
+    <Content Include="Assets\logos\biglogos\CXA.png" />
+    <Content Include="Assets\logos\biglogos\DAL.png" />
+    <Content Include="Assets\logos\biglogos\DHL.png" />
+    <Content Include="Assets\logos\biglogos\ETD.png" />
+    <Content Include="Assets\logos\biglogos\FDX.png" />
+    <Content Include="Assets\logos\biglogos\FJI.png" />
+    <Content Include="Assets\logos\biglogos\FRE.png" />
+    <Content Include="Assets\logos\biglogos\GIA.png" />
+    <Content Include="Assets\logos\biglogos\GTI.png" />
+    <Content Include="Assets\logos\biglogos\HAL.png" />
+    <Content Include="Assets\logos\biglogos\HFM.gif" />
+    <Content Include="Assets\logos\biglogos\HFM.png" />
+    <Content Include="Assets\logos\biglogos\HFY.png" />
+    <Content Include="Assets\logos\biglogos\HVN.png" />
+    <Content Include="Assets\logos\biglogos\JAL.png" />
+    <Content Include="Assets\logos\biglogos\JGO.png" />
+    <Content Include="Assets\logos\biglogos\JST.png" />
+    <Content Include="Assets\logos\biglogos\KAL.png" />
+    <Content Include="Assets\logos\biglogos\LAN.png" />
+    <Content Include="Assets\logos\biglogos\MAS.png" />
+    <Content Include="Assets\logos\biglogos\OZW.png" />
+    <Content Include="Assets\logos\biglogos\PAC.png" />
+    <Content Include="Assets\logos\biglogos\PAL.png" />
+    <Content Include="Assets\logos\biglogos\PAO.bmp" />
+    <Content Include="Assets\logos\biglogos\PAO.png" />
+    <Content Include="Assets\logos\biglogos\QFA.png" />
+    <Content Include="Assets\logos\biglogos\QLK.png" />
+    <Content Include="Assets\logos\biglogos\QNZ.png" />
+    <Content Include="Assets\logos\biglogos\QTR.png" />
+    <Content Include="Assets\logos\biglogos\RXA.png" />
+    <Content Include="Assets\logos\biglogos\SIA.png" />
+    <Content Include="Assets\logos\biglogos\TGG.png" />
+    <Content Include="Assets\logos\biglogos\TGW.png" />
+    <Content Include="Assets\logos\biglogos\THA.png" />
+    <Content Include="Assets\logos\biglogos\UAE.png" />
+    <Content Include="Assets\logos\biglogos\UAL.png" />
+    <Content Include="Assets\logos\biglogos\UPS.png" />
+    <Content Include="Assets\logos\biglogos\VOZ.png" />
+    <Content Include="Assets\logos\biglogos\XAX.png" />
+    <Content Include="Assets\logos\C822EB.png" />
+    <Content Include="Assets\logos\C82337.png" />
+    <Content Include="Assets\logos\CAL.png" />
+    <Content Include="Assets\logos\CCA.png" />
+    <Content Include="Assets\logos\CEB.png" />
+    <Content Include="Assets\logos\CES.png" />
+    <Content Include="Assets\logos\CHH.png" />
+    <Content Include="Assets\logos\COB.png" />
+    <Content Include="Assets\logos\CPA.png" />
+    <Content Include="Assets\logos\CSA.png" />
+    <Content Include="Assets\logos\CSC.png" />
+    <Content Include="Assets\logos\CSN.png" />
+    <Content Include="Assets\logos\CXA.png" />
+    <Content Include="Assets\logos\DAL.png" />
+    <Content Include="Assets\logos\DHL.png" />
+    <Content Include="Assets\logos\EAQ.png" />
+    <Content Include="Assets\logos\EFA.png" />
+    <Content Include="Assets\logos\ETD.png" />
+    <Content Include="Assets\logos\FDX.png" />
+    <Content Include="Assets\logos\FJI.png" />
+    <Content Include="Assets\logos\GIA.png" />
+    <Content Include="Assets\logos\GTI.png" />
+    <Content Include="Assets\logos\HAL.png" />
+    <Content Include="Assets\logos\HFM.png" />
+    <Content Include="Assets\logos\HFY.png" />
+    <Content Include="Assets\logos\HVN.png" />
+    <Content Include="Assets\logos\JAL.png" />
+    <Content Include="Assets\logos\JGO.png" />
+    <Content Include="Assets\logos\JST.png" />
+    <Content Include="Assets\logos\JTE.png" />
+    <Content Include="Assets\logos\KAL.png" />
+    <Content Include="Assets\logos\LAN.png" />
+    <Content Include="Assets\logos\MAS.png" />
+    <Content Include="Assets\logos\OZW.png" />
+    <Content Include="Assets\logos\PAC.png" />
+    <Content Include="Assets\logos\PAL.png" />
+    <Content Include="Assets\logos\PAO.png" />
+    <Content Include="Assets\logos\PEL.png" />
+    <Content Include="Assets\logos\PIU.png" />
+    <Content Include="Assets\logos\QFA.png" />
+    <Content Include="Assets\logos\QJE.png" />
+    <Content Include="Assets\logos\QLK.png" />
+    <Content Include="Assets\logos\QNZ.png" />
+    <Content Include="Assets\logos\QTR.png" />
+    <Content Include="Assets\logos\QWA.png" />
+    <Content Include="Assets\logos\RCH.png" />
+    <Content Include="Assets\logos\RFDS.png" />
+    <Content Include="Assets\logos\RXA.png" />
+    <Content Include="Assets\logos\SCO.png" />
+    <Content Include="Assets\logos\SHA.png" />
+    <Content Include="Assets\logos\SIA.png" />
+    <Content Include="Assets\logos\SQC.png" />
+    <Content Include="Assets\logos\SSQ.png" />
+    <Content Include="Assets\logos\TFX.png" />
+    <Content Include="Assets\logos\TGG.png" />
+    <Content Include="Assets\logos\TGW.png" />
+    <Content Include="Assets\logos\THA.png" />
+    <Content Include="Assets\logos\UAE.png" />
+    <Content Include="Assets\logos\UAL.png" />
+    <Content Include="Assets\logos\UPS.png" />
+    <Content Include="Assets\logos\UTY.png" />
+    <Content Include="Assets\logos\VOZ.png" />
+    <Content Include="Assets\logos\XAX.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -158,6 +305,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.1.7</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
