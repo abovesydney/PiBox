@@ -27,15 +27,18 @@ namespace PiBox
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
         public MainPage()
         {
-            GC.Collect(2);
-            DoTheMain();
+            //GC.Collect(2);
             this.InitializeComponent();
+            DoTheMain();
         }
 
         public async void DoTheMain()
         {
+
+            GC.Collect(2);
 
             var jsonSettings = new JsonSerializerSettings
             {
@@ -91,7 +94,7 @@ namespace PiBox
         {
             var _SelectedLine = (AcList)FlightList.SelectedItem;
             var _SelectedFlight = _SelectedLine.Icao.ToString();
-            Debug.WriteLine(_SelectedFlight);
+            //Debug.WriteLine(_SelectedFlight);
             Frame.Navigate(typeof(Pages.FlightRecord), _SelectedFlight, new DrillInNavigationTransitionInfo());
         }
     }

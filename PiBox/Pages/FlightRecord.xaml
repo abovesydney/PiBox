@@ -1,14 +1,32 @@
 ﻿<Page
-    x:Class="PiBox.Pages.FlightRecord"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:PiBox.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="using:Windows.UI.Xaml.Controls.Maps"
+    x:Class="PiBox.Pages.FlightRecord"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Button x:Name="_BackButton" Style="{StaticResource NavigationBackButtonNormalStyle}" Content="Button" HorizontalAlignment="Left" Height="66" Margin="10,10,0,0" VerticalAlignment="Top" Width="143" Tapped="_backClick"/>
+        <Grid HorizontalAlignment="Left" Height="82" Margin="10,508,0,0" VerticalAlignment="Top">
+            <TextBlock x:Uid="_stICAO"  x:Name="_stICAO" Margin="0,42,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" />
+            <TextBlock x:Uid="_stOP"  x:Name="_stOP" Margin="0,22,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" />
+            <TextBlock x:Uid="_stREG" x:Name="_stREG" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" />
+            <TextBlock x:Uid="_stCALLSIGN" x:Name="_stCALLSIGN" Margin="0,62,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" />
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="82" Margin="110,508,0,0" VerticalAlignment="Top">
+            <TextBlock x:Name="_tbICAO" Text="{Binding Icao}" Margin="0,42,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" />
+            <TextBlock x:Name="_tbOP" Text="{Binding Op}" Margin="0,22,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" />
+            <TextBlock x:Name="_tbREG" Text="{Binding Reg}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" />
+            <TextBlock x:Name="_tbCALLSIGN" Text="{Binding Call}" Margin="0,62,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" />
+        </Grid>
+        <Image x:Name="_BigLogo" HorizontalAlignment="Right" Margin="414,10,0,0" VerticalAlignment="Top" Width="600" Height="100" />
+        <Custom:MapControl x:Name="_locationMap" HorizontalAlignment="Left" Height="270" Margin="640,320,0,0" VerticalAlignment="Top" Width="374" Background="Transparent" ZoomInteractionMode="GestureAndControl" TiltInteractionMode="Disabled" MapServiceToken="9I7epDh0ljEKPbmqqFnl~YrST9M5Ve0PcuFchNOMa1Q~Aoc423iFxng4LZMUONv0ZkP8H-ynzALjfmaM0XuuOHh0M-X6tuGjui6lgpBwr-ow"/>
+        <TextBlock x:Name="_tbALT" Text="{Binding Alt}" HorizontalAlignment="Left" Height="20" Margin="724,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" FontWeight="Bold"/>
+        <TextBlock x:Uid="_stALT" x:Name="_stALT" HorizontalAlignment="Left" Height="20" Margin="640,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" FontWeight="Bold"/>
+        <TextBlock x:Name="Speed" HorizontalAlignment="Left" Height="25" Margin="340,235,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="80"/>
     </Grid>
 </Page>
