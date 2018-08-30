@@ -80,7 +80,7 @@ namespace PiBox
         {
             get
             {
-                return "/Assets/logos/" + OpIcao + ".png";
+                return "/Assets/images/logos/smalltails/" + OpIcao + ".png";
             }
         }
     }

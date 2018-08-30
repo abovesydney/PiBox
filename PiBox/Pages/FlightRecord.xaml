@@ -10,23 +10,51 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button x:Name="_BackButton" Style="{StaticResource NavigationBackButtonNormalStyle}" Content="Button" HorizontalAlignment="Left" Height="66" Margin="10,10,0,0" VerticalAlignment="Top" Width="143" Tapped="_backClick"/>
-        <Grid HorizontalAlignment="Left" Height="82" Margin="10,508,0,0" VerticalAlignment="Top">
-            <TextBlock x:Uid="_stICAO"  x:Name="_stICAO" Margin="0,42,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" />
-            <TextBlock x:Uid="_stOP"  x:Name="_stOP" Margin="0,22,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" />
-            <TextBlock x:Uid="_stREG" x:Name="_stREG" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" />
-            <TextBlock x:Uid="_stCALLSIGN" x:Name="_stCALLSIGN" Margin="0,62,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" />
+        <Rectangle HorizontalAlignment="Right" Height="120" Margin="0,0,-210,0" VerticalAlignment="Top" Width="1162" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <Rectangle.RenderTransform>
+                <SkewTransform AngleX="-30"></SkewTransform>
+            </Rectangle.RenderTransform>
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="White" Offset="0.3" />
+                    <GradientStop Color="#7EC0EE" Offset="1.0" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button x:Name="_BackButton" Style="{StaticResource NavigationBackButtonNormalStyle}" Content="Button" HorizontalAlignment="Left" Height="88" Margin="10,0,0,0" VerticalAlignment="Center" Width="31" Tapped="_backClick" BorderBrush="Black" BorderThickness="1"/>
+        <Grid HorizontalAlignment="Left" Height="82" Margin="281,510,0,0" VerticalAlignment="Top">
+            <TextBlock x:Uid="_stICAO"  x:Name="_stICAO" Margin="52,42,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" />
+            <TextBlock x:Uid="_stOP"  x:Name="_stOP" Margin="52,22,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" />
+            <TextBlock x:Uid="_stREG" x:Name="_stREG" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="52,0,0,0" />
+            <TextBlock x:Uid="_stCALLSIGN" x:Name="_stCALLSIGN" Margin="52,62,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" />
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="82" Margin="110,508,0,0" VerticalAlignment="Top">
-            <TextBlock x:Name="_tbICAO" Text="{Binding Icao}" Margin="0,42,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" />
-            <TextBlock x:Name="_tbOP" Text="{Binding Op}" Margin="0,22,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" />
-            <TextBlock x:Name="_tbREG" Text="{Binding Reg}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" />
-            <TextBlock x:Name="_tbCALLSIGN" Text="{Binding Call}" Margin="0,62,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" />
+        <Grid HorizontalAlignment="Left" Height="82" Margin="381,510,0,0" VerticalAlignment="Top">
+            <TextBlock x:Name="_tbICAO" Text="{Binding Icao}" Margin="52,42,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" />
+            <TextBlock x:Name="_tbOP" Text="{Binding Op}" Margin="52,22,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" />
+            <TextBlock x:Name="_tbREG" Text="{Binding Reg}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="52,0,0,0" />
+            <TextBlock x:Name="_tbCALLSIGN" Text="{Binding Call}" Margin="52,62,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" />
         </Grid>
-        <Image x:Name="_BigLogo" HorizontalAlignment="Right" Margin="414,10,0,0" VerticalAlignment="Top" Width="600" Height="100" />
-        <Custom:MapControl x:Name="_locationMap" HorizontalAlignment="Left" Height="270" Margin="640,320,0,0" VerticalAlignment="Top" Width="374" Background="Transparent" ZoomInteractionMode="GestureAndControl" TiltInteractionMode="Disabled" MapServiceToken="9I7epDh0ljEKPbmqqFnl~YrST9M5Ve0PcuFchNOMa1Q~Aoc423iFxng4LZMUONv0ZkP8H-ynzALjfmaM0XuuOHh0M-X6tuGjui6lgpBwr-ow"/>
-        <TextBlock x:Name="_tbALT" Text="{Binding Alt}" HorizontalAlignment="Left" Height="20" Margin="724,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" FontWeight="Bold"/>
-        <TextBlock x:Uid="_stALT" x:Name="_stALT" HorizontalAlignment="Left" Height="20" Margin="640,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" FontWeight="Bold"/>
-        <TextBlock x:Name="Speed" HorizontalAlignment="Left" Height="25" Margin="340,235,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="80"/>
+
+        <Image x:Name="_DefaultLogo" HorizontalAlignment="Right" VerticalAlignment="Top" Width="156" Height="120" Source="/Assets/logos/new/Default.png" />
+        <Image x:Name="_BigLogo" HorizontalAlignment="Right" VerticalAlignment="Top" Width="156" Height="120" />
+        <Custom:MapControl x:Name="_locationMap" HorizontalAlignment="Left" Height="270" Margin="649,333,0,0" VerticalAlignment="Top" Width="374" Background="Transparent" ZoomInteractionMode="GestureAndControl" TiltInteractionMode="Disabled" MapServiceToken="9I7epDh0ljEKPbmqqFnl~YrST9M5Ve0PcuFchNOMa1Q~Aoc423iFxng4LZMUONv0ZkP8H-ynzALjfmaM0XuuOHh0M-X6tuGjui6lgpBwr-ow" BusinessLandmarksVisible="False" Style="AerialWithRoads"/>
+        <Rectangle HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="154" Fill="Black" Margin="649,333,0,0" />
+        <TextBlock x:Name="_tbALT" Text="{Binding Alt}" HorizontalAlignment="Left" Height="20" Margin="733,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontWeight="Bold" Foreground="White" TextAlignment="Left"/>
+        <TextBlock x:Uid="_stALT" x:Name="_stALT" HorizontalAlignment="Left" Height="20" Margin="649,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" FontWeight="Bold" Foreground="White"/>
+        <TextBlock x:Name="Speed" HorizontalAlignment="Left" Height="25" Margin="400,357,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="80"/>
+        <ProgressRing x:Name="_loading" HorizontalAlignment="Center" VerticalAlignment="Center" IsActive="False"/>
+        <Grid HorizontalAlignment="Left" Height="62" Margin="10,528,0,0" VerticalAlignment="Top" Width="336">
+            <Image HorizontalAlignment="Left" Height="16" Width="16" VerticalAlignment="Top" Source="/Assets/images/ui/takeoff.png" Margin="0,3,0,0"/>
+            <Image HorizontalAlignment="Left" Height="16" Width="16" VerticalAlignment="Center" Source="/Assets/images/ui/via.png"/>
+            <Image HorizontalAlignment="Left" Height="16" Width="16" Margin="0,43,0,0" VerticalAlignment="Top" Source="/Assets/images/ui/landing.png"/>
+            <TextBlock x:Name="_tbDeparting" HorizontalAlignment="Left" Height="22" Margin="24,0,0,0" Text="..." TextWrapping="Wrap" VerticalAlignment="Top" Width="311"/>
+            <TextBlock x:Name="_tbArriving" HorizontalAlignment="Left" Height="20" Margin="24,40,0,0" Text="..." TextWrapping="Wrap" VerticalAlignment="Top" Width="311" />
+            <TextBlock x:Name="_tbVia" HorizontalAlignment="Left" Height="15" Margin="24,0,0,0" Text="DIRECT" TextWrapping="Wrap" VerticalAlignment="Center" Width="311" FontSize="10"/>
+        </Grid>
+        <TextBlock x:Name="_flightnumber" FontFamily="/Assets/BSC-Reg.ttf#Barlow" HorizontalAlignment="Left" Height="58" Margin="10,60,0,0" Text="_flightnumber" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="442" FontSize="36" FontWeight="Bold" />
+        <Rectangle HorizontalAlignment="Left" Height="14" Margin="494,360,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="_couFlagImg" HorizontalAlignment="Center" Height="64" Margin="0,36,0,0" VerticalAlignment="Top" Width="64"/>
+        <Image x:Name="_arrow" HorizontalAlignment="Left" Height="16" Margin="778,322,0,0" VerticalAlignment="Top" Width="16" Source="/Assets/images/ui/arrow.png" Visibility="Collapsed" />
+        <TextBlock x:Name="_airline" FontFamily="/Assets/BSC-Reg.ttf#Barlow" HorizontalAlignment="Left" Height="60" Margin="10,0,0,0" Text="_airline" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="442" FontSize="42" FontWeight="Bold" />
     </Grid>
 </Page>

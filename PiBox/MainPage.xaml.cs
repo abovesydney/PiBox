@@ -1,22 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.System.Threading;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -28,17 +19,40 @@ namespace PiBox
     public sealed partial class MainPage : Page
     {
 
+        private DispatcherTimer timer;
+        private int basetime;
+
         public MainPage()
         {
-            //GC.Collect(2);
+            //GC.Collect(2);          
             this.InitializeComponent();
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += timer_Tick;
+            basetime = 30;
+            timer.Start();
             DoTheMain();
         }
 
-        public async void DoTheMain()
+        void timer_Tick(object sender, object e)
         {
+            basetime = basetime - 1;
+            Debug.WriteLine (basetime.ToString());
+            _progressBar.Value = basetime;
+            if (basetime == 0)
+            {
+                timer.Stop();
+                basetime = 30;
+                DoTheMain();
+                timer.Start();
+            }
+        }
 
-            GC.Collect(2);
+
+
+            public async void DoTheMain()
+        {
+            //GC.Collect(2);
 
             var jsonSettings = new JsonSerializerSettings
             {
@@ -53,7 +67,7 @@ namespace PiBox
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                     var response = await client.GetAsync("http://www.abovesydney.net:8080/VirtualRadar/aircraftlist.json");
-
+                    
                     if (response.IsSuccessStatusCode)
                     {
                         //Decode JSON to list here
@@ -92,6 +106,7 @@ namespace PiBox
 
         private void _pickFlight(object sender, SelectionChangedEventArgs e)
         {
+            timer.Stop();
             var _SelectedLine = (AcList)FlightList.SelectedItem;
             var _SelectedFlight = _SelectedLine.Icao.ToString();
             //Debug.WriteLine(_SelectedFlight);

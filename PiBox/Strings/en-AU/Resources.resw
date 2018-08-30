@@ -122,7 +122,7 @@
     <comment>For testing.</comment>
   </data>
   <data name="_stALT.Text" xml:space="preserve">
-    <value>ALTITUDE</value>
+    <value>ALTITUDE:</value>
   </data>
   <data name="_stCALLSIGN.Text" xml:space="preserve">
     <value>CALLSIGN</value>
