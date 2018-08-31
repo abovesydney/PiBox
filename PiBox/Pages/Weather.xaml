@@ -9,6 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <TextBlock x:Name="_testbox" HorizontalAlignment="Left" Margin="248,229,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="172" Width="534"/>
+        <Button x:Name="_BackButton" Style="{StaticResource NavigationBackButtonNormalStyle}" Content="Button" HorizontalAlignment="Left" Height="88" Margin="10,0,0,0" VerticalAlignment="Center" Width="31" Tapped="_backClick" BorderBrush="Black" BorderThickness="1"/>
 
     </Grid>
 </Page>

@@ -83,6 +83,7 @@ namespace PiBox
                 return "/Assets/images/logos/smalltails/" + OpIcao + ".png";
             }
         }
+        public List<double> Cos { get; set; }
     }
 
     public class RootObject

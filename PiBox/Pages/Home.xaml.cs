@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -15,6 +14,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -24,24 +24,30 @@ namespace PiBox.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Weather : Page
+    public sealed partial class Home : Page
     {
-        public Weather()
+
+        DispatcherTimer Timer = new DispatcherTimer();
+
+        public Home()
         {
-            this.InitializeComponent();
-            DoTheMain();
+            InitializeComponent();
+            DataContext = this;
+            Timer.Tick += Timer_Tick;
+            Timer.Interval = new TimeSpan(0, 0, 1);
+            Timer.Start();
+            _date.Text = DateTime.Now.ToShortDateString();
+            GetWeather();
+
         }
 
-        public async void DoTheMain()
+        private void Timer_Tick(object sender, object e)
         {
-            //GC.Collect(2);
+            _clock.Text = DateTime.Now.ToString("h:mm:ss tt");
+        }
 
-            var jsonSettings = new JsonSerializerSettings
-            {
-                NullValueHandling = NullValueHandling.Include,
-                MissingMemberHandling = MissingMemberHandling.Ignore
-            };
-
+        private async void GetWeather()
+        {
             using (var client = new HttpClient())
             {
                 try
@@ -62,12 +68,12 @@ namespace PiBox.Pages
                         string _weaName = ro.name;
                         string _weaTemp = ro.main.temp.ToString();
                         string _weaDesc = ro.weather[0].description;
-                        _testbox.Text = _weaName + " " + _weaTemp + "°C " + _weaDesc;
+                        string _weaMain = ro.weather[0].main;
+                        _weather.Text = _weaTemp + "°C " + _weaMain;
 
                     }
                     else
                     {
-                        Debug.WriteLine("ERROR");
                         OnHTTPFail();
                     }
                 }
@@ -81,25 +87,18 @@ namespace PiBox.Pages
                     var messageDialog = new MessageDialog("Error getting JSON file.");
                     await messageDialog.ShowAsync();
                 }
-
             }
         }
 
+        private void _navFlights(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage), new DrillInNavigationTransitionInfo());
+        }
 
-        #region NAVIGATION
-        private bool On_BackRequested()
+        private void _navWeather(object sender, TappedRoutedEventArgs e)
         {
-            if (this.Frame.CanGoBack)
-            {
-                this.Frame.GoBack();
-                return true;
-            }
-            return false;
+            Frame.Navigate(typeof(Pages.Weather), new DrillInNavigationTransitionInfo());
         }
-        private void _backClick(object sender, TappedRoutedEventArgs e)
-        {
-            On_BackRequested();
-        }
-        #endregion
+
     }
 }

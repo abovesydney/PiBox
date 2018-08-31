@@ -1,0 +1,17 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PiBox.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="using:Windows.UI.Xaml.Controls.Maps"
+    x:Class="PiBox.Pages.MapTest"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+
+        <Custom:MapControl x:Name="_locationMap" HorizontalAlignment="Left" Height="270" Margin="335,0,0,0" VerticalAlignment="Center" Width="374" Background="Transparent" ZoomInteractionMode="GestureAndControl" TiltInteractionMode="Disabled" MapServiceToken="9I7epDh0ljEKPbmqqFnl~YrST9M5Ve0PcuFchNOMa1Q~Aoc423iFxng4LZMUONv0ZkP8H-ynzALjfmaM0XuuOHh0M-X6tuGjui6lgpBwr-ow" BusinessLandmarksVisible="False" Style="AerialWithRoads"/>
+
+    </Grid>
+</Page>

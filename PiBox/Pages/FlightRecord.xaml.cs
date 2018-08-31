@@ -12,8 +12,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace PiBox.Pages
 {
     /// <summary>
@@ -63,7 +61,7 @@ namespace PiBox.Pages
             using (var client = new HttpClient())
             {
                 string url = "http://www.abovesydney.net:8080/VirtualRadar/aircraftlist.json?fIcoQ=" + RecordSelect;
-                //string url = "http://www.abovesydney.net/test.json";
+                //testing string url = "http://www.abovesydney.net/test.json";
                 //string url = "http://www.abovesydney.net:8080/VirtualRadar/aircraftlist.json?fIcoQ=";
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -187,12 +185,13 @@ namespace PiBox.Pages
 
                         if (Ro.acList[0].Vsi > 0)
                         {
-                            //Do Up arrow
+                            // Up arrow
                             _arrow.Visibility = Visibility.Visible;
                             _arrow.Source = _arrow.Source = new BitmapImage(new Uri("ms-appx:///Assets/images/ui/up-arrow.png", UriKind.Absolute));
                         }
                         else if (Ro.acList[0].Vsi < 0)
                         {
+                            //Down Arrow
                             _arrow.Visibility = Visibility.Visible;
                             _arrow.Source = _arrow.Source = new BitmapImage(new Uri("ms-appx:///Assets/images/ui/down-arrow.png", UriKind.Absolute));
                         }

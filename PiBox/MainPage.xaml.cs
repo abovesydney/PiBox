@@ -66,7 +66,7 @@ namespace PiBox
                 {
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-                    var response = await client.GetAsync("http://www.abovesydney.net:8080/VirtualRadar/aircraftlist.json");
+                    var response = await client.GetAsync("http://www.abovesydney.net:8080/VirtualRadar/aircraftlist.json?fIcoSN=7CF");
                     
                     if (response.IsSuccessStatusCode)
                     {
@@ -111,6 +111,20 @@ namespace PiBox
             var _SelectedFlight = _SelectedLine.Icao.ToString();
             //Debug.WriteLine(_SelectedFlight);
             Frame.Navigate(typeof(Pages.FlightRecord), _SelectedFlight, new DrillInNavigationTransitionInfo());
+        }
+
+        private bool On_BackRequested()
+        {
+            if (this.Frame.CanGoBack)
+            {
+                this.Frame.GoBack();
+                return true;
+            }
+            return false;
+        }
+        private void _backClick(object sender, TappedRoutedEventArgs e)
+        {
+            On_BackRequested();
         }
     }
 }
