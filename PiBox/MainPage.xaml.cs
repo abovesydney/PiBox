@@ -67,7 +67,7 @@ namespace PiBox
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                     var response = await client.GetAsync("http://www.abovesydney.net:8080/VirtualRadar/aircraftlist.json?fIcoSN=7CF");
-                    
+
                     if (response.IsSuccessStatusCode)
                     {
                         //Decode JSON to list here
@@ -117,6 +117,7 @@ namespace PiBox
         {
             if (this.Frame.CanGoBack)
             {
+                timer.Stop();
                 this.Frame.GoBack();
                 return true;
             }

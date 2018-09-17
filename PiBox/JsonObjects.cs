@@ -70,7 +70,7 @@ namespace PiBox
         public string Call { get; set; }
         public double Lat { get; set; }
         public double Long { get; set; }
-        public long? PosTime { get; set; }
+        public double PosTime { get; set; }
         public bool? Mlat { get; set; }
         public string From { get; set; }
         public string To { get; set; }
@@ -84,6 +84,55 @@ namespace PiBox
             }
         }
         public List<double> Cos { get; set; }
+        public string FromTo
+        {
+            get
+            {
+                string _from = "";
+                string _to = "";
+
+                if (From == null)
+                {
+                    _from = "   ";
+                }
+                else
+                {
+                    _from = From;
+                }
+
+                if (To == null)
+                {
+                    _to = "   ";
+                }
+                else
+                {
+                    _to = To;
+                }
+
+                string _fromShort = _from.Substring(0, 3);
+                string _toShort = _to.Substring(0, 3);
+                return _fromShort + "-" + _toShort;
+            }
+        }
+        public string Bearing
+        {
+            get
+            {
+                //GET BRNG
+                return "";
+            }
+        }
+
+        public DateTime LastPosUpdate
+        {
+            get
+            {
+                DateTime dtDateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+                dtDateTime = dtDateTime.AddMilliseconds(PosTime);
+                return dtDateTime;
+            }
+
+        }
     }
 
     public class RootObject

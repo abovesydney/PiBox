@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -29,8 +30,21 @@ namespace PiBox.Pages
 
         DispatcherTimer Timer = new DispatcherTimer();
 
+        
+
         public Home()
         {
+            ApplicationDataContainer savedSettings = ApplicationData.Current.LocalSettings;
+            var _SETvrsserver = savedSettings.Values["#VRSSERVER"];
+
+            if (_SETvrsserver == null)
+            {
+                //DO A SETUP THING?
+                savedSettings.Values["#VRSSERVER"] = "http://www.abovesydney.net:8080/VirtualRadar/aircraftlist.json";
+            }
+            
+               
+
             InitializeComponent();
             DataContext = this;
             Timer.Tick += Timer_Tick;

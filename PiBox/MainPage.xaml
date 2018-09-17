@@ -21,15 +21,15 @@
             </Rectangle.Fill>
         </Rectangle>
         <Button Content="Retry" HorizontalAlignment="Left" Margin="91,64,0,0" VerticalAlignment="Top" Tapped="_DoRetry" Height="48" Width="81"/>
-        <ListView x:Name="FlightList" Margin="0,117,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" IsItemClickEnabled="True" SelectionChanged="_pickFlight" Height="473" Width="932" Transitions="{x:Null}" ItemContainerTransitions="{x:Null}" >
+        <ListView x:Name="FlightList" Margin="0,117,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" IsItemClickEnabled="True" SelectionChanged="_pickFlight" Height="473" Width="932" Grid.Column="8" Transitions="{x:Null}" ItemContainerTransitions="{x:Null}" >
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:AcList">
                     <StackPanel x:Name="ugh" Orientation="Horizontal">
                         <Image x:Name="URI" Source="{x:Bind Path=FullUri}" Width="85" Height="20"/>
+                        <TextBlock x:Name="Callsign" Text="{x:Bind Path=Call}" Margin="5" />
+                        <TextBlock x:Name="FromTo" Text="{x:Bind Path=FromTo}" Margin="5" />
                         <TextBlock x:Name="Operator" Text="{x:Bind Path=Op}" Margin="5" />
                         <TextBlock x:Name="Model" Text="{x:Bind Path=Mdl}" Margin="5" />
-                        <TextBlock x:Name="ICAO" Text="{x:Bind Path=Icao}" Margin="5" />
-                        <TextBlock x:Name="test" Text="{x:Bind Path=Call}" Margin="5" />
                         <TextBlock x:Name="OpICAO"  Text="{x:Bind Path=OpIcao}" Margin="5" />
                         <TextBlock x:Name="Country" Text="{x:Bind Path=Cou}" Margin="5" />
                         <TextBlock x:Name="Registration" Text="{x:Bind Path=Reg}" Margin="5" />

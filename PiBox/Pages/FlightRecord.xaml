@@ -22,13 +22,13 @@
             </Rectangle.Fill>
         </Rectangle>
         <Button x:Name="_BackButton" Style="{StaticResource NavigationBackButtonNormalStyle}" Content="Button" HorizontalAlignment="Left" Height="88" Margin="10,0,0,0" VerticalAlignment="Center" Width="31" Tapped="_backClick" BorderBrush="Black" BorderThickness="1"/>
-        <Grid HorizontalAlignment="Left" Height="82" Margin="281,510,0,0" VerticalAlignment="Top">
+        <Grid HorizontalAlignment="Left" Height="82" Margin="296,515,0,0" VerticalAlignment="Top">
             <TextBlock x:Uid="_stICAO"  x:Name="_stICAO" Margin="52,42,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" />
             <TextBlock x:Uid="_stOP"  x:Name="_stOP" Margin="52,22,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" />
             <TextBlock x:Uid="_stREG" x:Name="_stREG" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="52,0,0,0" />
             <TextBlock x:Uid="_stCALLSIGN" x:Name="_stCALLSIGN" Margin="52,62,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" />
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="82" Margin="381,510,0,0" VerticalAlignment="Top">
+        <Grid HorizontalAlignment="Left" Height="82" Margin="396,515,0,0" VerticalAlignment="Top">
             <TextBlock x:Name="_tbICAO" Text="{Binding Icao}" Margin="52,42,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" />
             <TextBlock x:Name="_tbOP" Text="{Binding Op}" Margin="52,22,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" />
             <TextBlock x:Name="_tbREG" Text="{Binding Reg}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="52,0,0,0" />
@@ -41,8 +41,8 @@
         <Rectangle HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="154" Fill="Black" Margin="649,333,0,0" />
         <TextBlock x:Name="_tbALT" Text="{Binding Alt}" HorizontalAlignment="Left" Height="20" Margin="733,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontWeight="Bold" Foreground="White" TextAlignment="Left"/>
         <TextBlock x:Uid="_stALT" x:Name="_stALT" HorizontalAlignment="Left" Height="20" Margin="649,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" FontWeight="Bold" Foreground="White"/>
-        <TextBlock x:Name="Speed" HorizontalAlignment="Left" Height="25" Margin="400,357,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="80"/>
-        <ProgressRing x:Name="_loading" HorizontalAlignment="Center" VerticalAlignment="Center" IsActive="False"/>
+        <TextBlock x:Name="Speed" HorizontalAlignment="Left" Height="25" Margin="10,468,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="213"/>
+        <ProgressRing x:Name="_loading" HorizontalAlignment="Left" VerticalAlignment="Top" IsActive="False" Margin="962,274,0,0"/>
         <Grid HorizontalAlignment="Left" Height="62" Margin="10,528,0,0" VerticalAlignment="Top" Width="336">
             <Image HorizontalAlignment="Left" Height="16" Width="16" VerticalAlignment="Top" Source="/Assets/images/ui/takeoff.png" Margin="0,3,0,0"/>
             <Image HorizontalAlignment="Left" Height="16" Width="16" VerticalAlignment="Center" Source="/Assets/images/ui/via.png"/>
@@ -56,5 +56,8 @@
         <Image x:Name="_couFlagImg" HorizontalAlignment="Center" Height="64" Margin="0,36,0,0" VerticalAlignment="Top" Width="64"/>
         <Image x:Name="_arrow" HorizontalAlignment="Left" Height="16" Margin="778,322,0,0" VerticalAlignment="Top" Width="16" Source="/Assets/images/ui/arrow.png" Visibility="Collapsed" />
         <TextBlock x:Name="_airline" FontFamily="/Assets/BSC-Reg.ttf#Barlow" HorizontalAlignment="Left" Height="60" Margin="10,0,0,0" Text="_airline" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="442" FontSize="42" FontWeight="Bold" />
+        <TextBlock x:Name="_date" HorizontalAlignment="Left" Margin="695,303,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="_tbStatus" HorizontalAlignment="Left" Margin="926,299,0,0" Text="Status" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" TextAlignment="Center"/>
+        <TextBlock x:Name="_version" HorizontalAlignment="Left" Margin="10,588,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="9"/>
     </Grid>
 </Page>

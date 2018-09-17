@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PiBox</RootNamespace>
     <AssemblyName>PiBox</AssemblyName>
-    <DefaultLanguage>de-DE</DefaultLanguage>
+    <DefaultLanguage>en-AU</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17134.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
@@ -133,6 +133,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\arrow.png" />
+    <Content Include="Assets\images\logos\smalltails\GTI.png" />
+    <Content Include="Assets\images\logos\tails\GTI.png" />
     <Content Include="Assets\images\ui\down-arrow.png" />
     <Content Include="Assets\images\flags\Abkhazia.png" />
     <Content Include="Assets\images\flags\Afghanistan.png" />
