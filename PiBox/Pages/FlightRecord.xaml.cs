@@ -6,6 +6,7 @@ using System.Net.Http;
 using Windows.ApplicationModel;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
+using Windows.Storage;
 using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -28,6 +29,7 @@ namespace PiBox.Pages
         private int basetime;
 
         public String RecordSelect { get; set; }
+        public string jsonloc;
 
         public RootObject Ro;
 
@@ -50,7 +52,28 @@ namespace PiBox.Pages
         {
             RecordSelect = e.Parameter.ToString();
             _BackButton.IsEnabled = this.Frame.CanGoBack;
-            DoTheMain();
+
+            {
+                ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+                if (localSettings.Values["jsonloc"] != null)
+                {
+                    jsonloc = localSettings.Values["jsonloc"].ToString();
+                    DoTheMain();
+                }
+                else
+                {
+                    Debug.WriteLine("Go and do the settings, idiot!");
+                    OnSettingsFail();
+                }
+            }
+
+            async void OnSettingsFail()
+            {
+                var messageDialog = new MessageDialog("aircraftlist.json NOT set!") { Title = "Settings Error!" };
+                timer.Stop();
+                await messageDialog.ShowAsync();
+                On_BackRequested();
+            }
         }
         #endregion NAVIGATION
 
@@ -68,7 +91,8 @@ namespace PiBox.Pages
 
             using (var client = new HttpClient())
             {
-                string url = "http://www.abovesydney.net:8080/VirtualRadar/aircraftlist.json?fIcoQ=" + RecordSelect;
+                string url = "http://" + jsonloc + "/aircraftlist.json?fIcoQ=" + RecordSelect;
+                //string url = "http://www.abovesydney.net:8080/VirtualRadar/aircraftlist.json?fIcoQ=" + RecordSelect;
                 //testing string url = "http://www.abovesydney.net/test.json";
                 //string url = "http://www.abovesydney.net:8080/VirtualRadar/aircraftlist.json?fIcoQ=";
                 client.DefaultRequestHeaders.Accept.Clear();
@@ -102,6 +126,8 @@ namespace PiBox.Pages
                     await messageDialog.ShowAsync();
                     On_BackRequested();
                 }
+
+
 
                 #endregion
 

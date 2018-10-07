@@ -9,6 +9,18 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <TextBox x:Name="_tboxJSON" HorizontalAlignment="Left" Margin="160,68,0,0" PlaceholderText="URL to aircraftlist.json" VerticalAlignment="Top" Width="480" IsSpellCheckEnabled="False"/>
+        <Button x:Name="_buttSetnRead" Content="SET/TEST" HorizontalAlignment="Left" Margin="160,138,0,0" VerticalAlignment="Top" Click="SetnReadJSON"/>
+        <TextBlock x:Name="_tbResult" HorizontalAlignment="Left" Margin="160,210,0,0" Text="UNSET" TextWrapping="Wrap" VerticalAlignment="Top" Width="480"/>
+        <Button x:Name="_BackButton" Style="{StaticResource NavigationBackButtonNormalStyle}" HorizontalAlignment="Left" Height="88" VerticalAlignment="Top" Width="31" Tapped="_backClick" BorderBrush="Black" BorderThickness="1" Margin="-1,247,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="116,73,0,0" Text="http://" TextWrapping="Wrap" VerticalAlignment="Top" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="648,73,0,0" Text="/aircraftlist.json" TextWrapping="Wrap" VerticalAlignment="Top" Height="20"/>
+        <Button x:Name="_butReset" Content="Reset!" HorizontalAlignment="Left" Margin="160,0,0,0" VerticalAlignment="Center" Tapped="_buttReset"/>
+        <TextBox x:Name="_tboxOWKey" HorizontalAlignment="Left" Margin="160,359,0,0" PlaceholderText="OpenWeather APIKey" VerticalAlignment="Top" Width="480" IsSpellCheckEnabled="False"/>
+        <TextBox x:Name="_tboxOWLoc" HorizontalAlignment="Left" Margin="160,419,0,0" PlaceholderText="OpenWeather LOCID" VerticalAlignment="Top" Width="480" IsSpellCheckEnabled="False"/>
+        <Button x:Name="_buttOWSetnRead" Content="SET/TEST" HorizontalAlignment="Left" Margin="160,483,0,0" VerticalAlignment="Top" Tapped="SetnReadOW" />
+        <TextBlock x:Name="_tbOWResult" HorizontalAlignment="Left" Margin="160,537,0,0" Text="UNSET" TextWrapping="Wrap" VerticalAlignment="Top" Width="480"/>
+        <Button x:Name="_DEBUGDefaults" Content="Defaults dbg" HorizontalAlignment="Left" Margin="265,483,0,0" VerticalAlignment="Top" Tapped="dbgset"/>
 
     </Grid>
 </Page>

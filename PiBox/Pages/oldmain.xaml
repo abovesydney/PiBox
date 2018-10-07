@@ -1,0 +1,85 @@
+﻿<Page
+    x:Class="PiBox.Pages.oldmain"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+    xmlns:local="using:PiBox"
+
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
+    mc:Ignorable="d"
+
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+
+    <Grid>
+
+        <Rectangle HorizontalAlignment="Right" Height="120" Margin="0,0,-210,0" VerticalAlignment="Top" Width="1162" UseLayoutRounding="False" d:LayoutRounding="Auto">
+
+            <Rectangle.RenderTransform>
+
+                <SkewTransform AngleX="-30"/>
+
+            </Rectangle.RenderTransform>
+
+            <Rectangle.Fill>
+
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+
+                    <GradientStop Color="White" Offset="0.3" />
+
+                    <GradientStop Color="Gray" Offset="1.0" />
+
+                </LinearGradientBrush>
+
+            </Rectangle.Fill>
+
+        </Rectangle>
+
+        <Button Content="Retry" HorizontalAlignment="Left" Margin="91,64,0,0" VerticalAlignment="Top" Tapped="_DoRetry" Height="48" Width="81"/>
+
+        <ListView x:Name="FlightList" Margin="0,117,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" IsItemClickEnabled="True" SelectionChanged="_pickFlight" Height="473" Width="932" Grid.Column="8" Transitions="{x:Null}" ItemContainerTransitions="{x:Null}" >
+
+            <ListView.ItemTemplate>
+
+                <DataTemplate x:DataType="local:AcList">
+
+                    <StackPanel x:Name="ugh" Orientation="Horizontal">
+
+                        <Image x:Name="URI" Source="{x:Bind Path=FullUri}" Width="85" Height="20"/>
+
+                        <TextBlock x:Name="Callsign" Text="{x:Bind Path=Call}" Margin="5" />
+
+                        <TextBlock x:Name="FromTo" Text="{x:Bind Path=FromTo}" Margin="5" />
+
+                        <TextBlock x:Name="Operator" Text="{x:Bind Path=Op}" Margin="5" />
+
+                        <TextBlock x:Name="Model" Text="{x:Bind Path=Mdl}" Margin="5" />
+
+                        <TextBlock x:Name="OpICAO"  Text="{x:Bind Path=OpIcao}" Margin="5" />
+
+                        <TextBlock x:Name="Country" Text="{x:Bind Path=Cou}" Margin="5" />
+
+                        <TextBlock x:Name="Registration" Text="{x:Bind Path=Reg}" Margin="5" />
+
+                    </StackPanel>
+
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        <TextBlock x:Name="refresher" HorizontalAlignment="Left" Height="24" Margin="678,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"/>
+
+        <ProgressBar x:Name="_progressBar" HorizontalAlignment="Left" Height="6" Margin="10,584,0,0" VerticalAlignment="Top" Width="31" Maximum="30"/>
+
+        <Button x:Name="_BackButton" Style="{StaticResource NavigationBackButtonNormalStyle}" Content="Button" HorizontalAlignment="Left" Height="88" Margin="10,0,0,0" VerticalAlignment="Center" Width="31" Tapped="_backClick" BorderBrush="Black" BorderThickness="1"/>
+
+    </Grid>
+
+</Page>

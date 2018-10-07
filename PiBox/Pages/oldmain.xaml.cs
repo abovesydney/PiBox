@@ -1,33 +1,28 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Windows.ApplicationModel;
-using Windows.Storage;
 using Windows.System.Threading;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Animation;
-using Windows.UI.Xaml.Media.Imaging;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace PiBox
+namespace PiBox.Pages
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class oldmain : Page
     {
 
         private DispatcherTimer timer;
         private int basetime;
-        static Random rnd = new Random();
 
-        public MainPage()
+        public oldmain()
         {
             //GC.Collect(2);          
             this.InitializeComponent();
@@ -36,14 +31,13 @@ namespace PiBox
             timer.Tick += timer_Tick;
             basetime = 30;
             timer.Start();
-            SetUpTails();
             DoTheMain();
         }
 
         void timer_Tick(object sender, object e)
         {
             basetime = basetime - 1;
-            Debug.WriteLine (basetime.ToString());
+            Debug.WriteLine(basetime.ToString());
             _progressBar.Value = basetime;
             if (basetime == 0)
             {
@@ -51,24 +45,7 @@ namespace PiBox
                 basetime = 30;
                 DoTheMain();
                 timer.Start();
-                
             }
-        }
-
-        public async void SetUpTails()
-        {
-            StorageFolder appInstalledFolder = Package.Current.InstalledLocation;
-            StorageFolder assets = await appInstalledFolder.GetFolderAsync(@"Assets\images\logos\tails");
-            IReadOnlyList<StorageFile> files = await assets.GetFilesAsync();
-            int tailFrnt = rnd.Next(files.Count);
-            int tailMidl = rnd.Next(files.Count);
-            int tailRear = rnd.Next(files.Count);
-            string Frnturi = "ms-appx:///Assets/images/logos/tails/" + files[tailFrnt].Name.ToString();
-            string Midlturi = "ms-appx:///Assets/images/logos/tails/" + files[tailMidl].Name.ToString();
-            string Rearuri = "ms-appx:///Assets/images/logos/tails/" + files[tailRear].Name.ToString();
-            _headerLogoFront.Source = new BitmapImage(new Uri(Frnturi, UriKind.Absolute));
-            _headerLogoMid.Source = new BitmapImage(new Uri(Midlturi, UriKind.Absolute));
-            _headerLogoBack.Source = new BitmapImage(new Uri(Rearuri, UriKind.Absolute));
         }
 
 
@@ -100,7 +77,7 @@ namespace PiBox
                         RootObject rootObject = new RootObject();
                         AcList acList = new AcList();
                         FlightList.ItemsSource = ro.acList;
-                        
+
                     }
                     else
                     {

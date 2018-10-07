@@ -83,6 +83,14 @@ namespace PiBox
                 return "/Assets/images/logos/smalltails/" + OpIcao + ".png";
             }
         }
+        public string FlagUri
+        {
+            get
+            {
+                return "/Assets/images/flags/" + Cou + ".png";
+            }
+        }
+
         public List<double> Cos { get; set; }
         public string FromTo
         {

@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -20,7 +22,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace PiBox.Pages
+namespace PiBox
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -29,8 +31,6 @@ namespace PiBox.Pages
     {
 
         DispatcherTimer Timer = new DispatcherTimer();
-
-        
 
         public Home()
         {
@@ -42,8 +42,8 @@ namespace PiBox.Pages
                 //DO A SETUP THING?
                 savedSettings.Values["#VRSSERVER"] = "http://www.abovesydney.net:8080/VirtualRadar/aircraftlist.json";
             }
-            
-               
+
+
 
             InitializeComponent();
             DataContext = this;
@@ -52,7 +52,6 @@ namespace PiBox.Pages
             Timer.Start();
             _date.Text = DateTime.Now.ToShortDateString();
             GetWeather();
-
         }
 
         private void Timer_Tick(object sender, object e)
@@ -83,7 +82,7 @@ namespace PiBox.Pages
                         string _weaTemp = ro.main.temp.ToString();
                         string _weaDesc = ro.weather[0].description;
                         string _weaMain = ro.weather[0].main;
-                        _weather.Text = _weaTemp + "°C " + _weaMain;
+                        _weather.Text = _weaTemp + "°C  " + _weaMain;
 
                     }
                     else
@@ -104,15 +103,42 @@ namespace PiBox.Pages
             }
         }
 
-        private void _navFlights(object sender, TappedRoutedEventArgs e)
+        private async void _navFlights(object sender, TappedRoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage), new DrillInNavigationTransitionInfo());
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            if (localSettings.Values["IsFlightsSet"] != null)
+            {
+                Frame.Navigate(typeof(MainPage), new DrillInNavigationTransitionInfo()); ;
+            }
+            else
+            {
+                var messageDialog = new MessageDialog("Aircraftlist.json not set!");
+                await messageDialog.ShowAsync();
+            }
         }
 
-        private void _navWeather(object sender, TappedRoutedEventArgs e)
+        private async void _navWeather(object sender, TappedRoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Pages.Weather), new DrillInNavigationTransitionInfo());
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            if (localSettings.Values["OWSet"] != null)
+            {
+                Frame.Navigate(typeof(Pages.Weather), new DrillInNavigationTransitionInfo()); ;
+            }
+            else
+            {
+                var messageDialog = new MessageDialog("Weather location not set!");
+                await messageDialog.ShowAsync();
+            }
         }
 
+        private void _navSettings(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Pages.Settings), new DrillInNavigationTransitionInfo());
+        }
+
+        private void _navOld(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Pages.oldmain), new DrillInNavigationTransitionInfo());
+        }
     }
 }
