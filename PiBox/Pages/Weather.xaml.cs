@@ -1,22 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.UI.Popups;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Media.Imaging;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -87,6 +77,7 @@ namespace PiBox.Pages
                         string _weaWinDir = ro.wind.deg.ToString();
                         string _weaWinSpd = ro.wind.speed.ToString();
                         string _weaHumid = ro.main.humidity.ToString();
+                        string _weaIcon = "ms-appx:///Assets/images/weather/" +  ro.weather[0].icon + ".png";
                         _TBbigTemp.Text = _weaTemp + "°C ";
                         _TBbigwords.Text = _weaDesc;
                         _TBbiglocation.Text = _weaName;
@@ -94,6 +85,8 @@ namespace PiBox.Pages
                         _TBWDir.Text = _weaWinDir + "°";
                         _TBWSpd.Text = _weaWinSpd + "m/sec";
                         _TBHumid.Text = _weaHumid + "%";
+                        _imgWeather.Source = new BitmapImage(new Uri(_weaIcon, UriKind.Absolute));
+
                     }
                     else
                     {

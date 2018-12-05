@@ -1,0 +1,112 @@
+﻿<Page
+    x:Class="PiBox.Pages.FlightList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PiBox"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid VerticalAlignment="Stretch">
+        <Rectangle HorizontalAlignment="Right" Height="115" Margin="0,0,-210,0" VerticalAlignment="Top" Width="1162" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <Rectangle.RenderTransform>
+                <SkewTransform AngleX="-30"/>
+            </Rectangle.RenderTransform>
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="White" Offset="0.3" />
+                    <GradientStop Color="{ThemeResource SystemAccentColor}"  Offset="1.0" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Button Tapped="_backClick" Background="Transparent" Height="48" Width="81" HorizontalAlignment="Left" Margin="70,26,0,0" VerticalAlignment="Top">
+            <StackPanel>
+                <SymbolIcon Symbol="Back" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" />
+                <TextBlock>Back</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Button Tapped="_DoRetry" Background="Transparent" Height="48" Width="81" HorizontalAlignment="Left" Margin="160,26,0,0" VerticalAlignment="Top">
+            <StackPanel>
+                <SymbolIcon Symbol="Refresh" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" />
+                <TextBlock>Refresh</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <ProgressBar x:Name="_progressBar" HorizontalAlignment="Left" Height="6" Margin="140,92,0,0" VerticalAlignment="Top" Width="31" Maximum="30"/>
+        <ProgressRing x:Name="_IsLoading" HorizontalAlignment="Left" Margin="285,33,0,0" VerticalAlignment="Top" IsActive="False"/>
+
+        <TextBlock x:Name="_tblockAirport" FontFamily="/Assets/BSC-Reg.ttf#Barlow" HorizontalAlignment="Left" Height="60" Margin="241,28,0,0" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="442" FontSize="42" FontWeight="Bold" />
+
+        <Image x:Name="_headerLogoBack" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="60" Source="/Assets/images/logos/tails/Default.png" Margin="0,70,-4,0" />
+        <Image x:Name="_headerLogoMid" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="80" Source="/Assets/images/logos/tails/Default.png" Margin="0,40,46,0" />
+        <Image x:Name="_headerLogoFront" HorizontalAlignment="Right" VerticalAlignment="Top" Width="119" Height="120" Source="/Assets/images/logos/tails/Default.png" Margin="0,24,120,0" />
+        <Grid Padding="3" Background="LightGray" Height="26" Margin="5,115,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="36"/>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="340"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="90"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="   Flag" VerticalAlignment="Center" TextAlignment="Left" Style="{ThemeResource CaptionTextBlockStyle}" Margin="0"/>
+            <TextBlock Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center" Text="Callsign" Style="{ThemeResource CaptionTextBlockStyle}"/>
+            <TextBlock Grid.Column="2" TextAlignment="Center" VerticalAlignment="Center" Text="Registration" Style="{ThemeResource CaptionTextBlockStyle}"/>
+            <TextBlock Grid.Column="3" TextAlignment="Center" VerticalAlignment="Center" Text="Country" Style="{ThemeResource CaptionTextBlockStyle}"/>
+            <TextBlock Grid.Column="4" TextAlignment="Center" VerticalAlignment="Center" Text="Model" Style="{ThemeResource CaptionTextBlockStyle}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="3,0,0,0" Width="350"/>
+            <TextBlock Grid.Column="5" TextAlignment="Center" VerticalAlignment="Center" Text="Operator" Style="{ThemeResource CaptionTextBlockStyle}"/>
+            <TextBlock Grid.Column="6" TextAlignment="Center" VerticalAlignment="Center" Text="Speed" Style="{ThemeResource CaptionTextBlockStyle}"/>
+            <TextBlock Grid.Column="7" TextAlignment="Center" VerticalAlignment="Center" Text="Altitude" Style="{ThemeResource CaptionTextBlockStyle}"/>
+            <TextBlock Grid.Column="8" TextAlignment="Center" VerticalAlignment="Center" Text="Route" Style="{ThemeResource CaptionTextBlockStyle}"/>
+        </Grid>
+        <ListView x:Name="FlightPickList" Margin="10,141,0,0" IsItemClickEnabled="True" SelectionChanged="_pickFlight" Transitions="{x:Null}" ItemContainerTransitions="{x:Null}" ScrollViewer.VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate x:Name="TableDataTemplate" x:DataType="local:AcList">
+                    <Grid Height="48">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="26"/>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="340"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle x:Name="_tail" Height="20" Width="26" VerticalAlignment="Center">
+                            <Rectangle.Fill>
+                                <ImageBrush ImageSource="{x:Bind Path=FullUri}"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <TextBlock Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{x:Bind Path=Call}" />
+                        <TextBlock Grid.Column="2" TextAlignment="Center" VerticalAlignment="Center" Text="{x:Bind Path=Reg}"/>
+                        <Rectangle Grid.Column="3" Height="32" Width="32" VerticalAlignment="Center">
+                            <Rectangle.Fill>
+                                <ImageBrush x:Name="_flag" ImageSource="{x:Bind Path=FlagUri}" ToolTipService.ToolTip="{x:Bind Path=Cou}"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <!--<TextBlock Grid.Column="4" TextAlignment="Center" VerticalAlignment="Center" Text="{x:Bind Path=Cou}"/>-->
+                        <TextBlock Grid.Column="4" TextAlignment="Center" VerticalAlignment="Center" Text="{x:Bind Path=Mdl}"/>
+                        <TextBlock Grid.Column="5" TextAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{x:Bind Path=Op}"/>
+                        <TextBlock Grid.Column="6" TextAlignment="Center" VerticalAlignment="Center" Text="{x:Bind Path=OpIcao}"/>
+                        <TextBlock Grid.Column="7" TextAlignment="Center" VerticalAlignment="Center" Text="{x:Bind Path=GAlt}"/>
+                        <TextBlock Grid.Column="8" TextAlignment="Center" VerticalAlignment="Center" Text="{x:Bind Path=FromTo}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </Grid>
+</Page>

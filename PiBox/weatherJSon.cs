@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PiBox
+﻿namespace PiBox
 {
     class weatherJSon
     {
@@ -67,6 +61,14 @@ namespace PiBox
             public string main { get; set; }
             public string description { get; set; }
             public string icon { get; set; }
+            public string iconUri
+            {
+                get
+                {
+                    return "/Assets/images/weather/" + icon + ".png";
+                }
+            }
+
         }
 
     }

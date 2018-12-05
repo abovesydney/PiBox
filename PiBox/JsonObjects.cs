@@ -1,14 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using PiBox;
-using Newtonsoft.Json.Linq;
-using System.Reflection;
-using System.Collections.ObjectModel;
 
 namespace PiBox
 {
@@ -19,6 +10,7 @@ namespace PiBox
         public string name { get; set; }
         public bool polarPlot { get; set; }
     }
+
 
     public class AcList
     {
@@ -101,7 +93,7 @@ namespace PiBox
 
                 if (From == null)
                 {
-                    _from = "   ";
+                    _from = "    ";
                 }
                 else
                 {
@@ -110,16 +102,15 @@ namespace PiBox
 
                 if (To == null)
                 {
-                    _to = "   ";
+                    _to = "    ";
                 }
                 else
                 {
                     _to = To;
                 }
-
-                string _fromShort = _from.Substring(0, 3);
-                string _toShort = _to.Substring(0, 3);
-                return _fromShort + "-" + _toShort;
+                string _fromShort = _from.Substring(0, 4);
+                string _toShort = _to.Substring(0, 4);
+                return _fromShort + "- " + _toShort;
             }
         }
         public string Bearing

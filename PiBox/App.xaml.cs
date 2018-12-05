@@ -1,6 +1,7 @@
 ﻿using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.Foundation;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -53,7 +54,7 @@ namespace PiBox
                 }
 
                 // Place the frame in the current Window
-                ElementSoundPlayer.State = ElementSoundPlayerState.On;
+                ElementSoundPlayer.State = ElementSoundPlayerState.Off;
                 Window.Current.Content = rootFrame;
             }
 
@@ -67,6 +68,8 @@ namespace PiBox
                     rootFrame.Navigate(typeof(Home), e.Arguments);
                 }
                 // Ensure the current window is active
+                ApplicationView.PreferredLaunchViewSize = new Size(1024, 600);
+                ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
                 //ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
                 Window.Current.Activate();
             }

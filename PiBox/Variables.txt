@@ -1,0 +1,8 @@
+﻿//Flightrecord.xaml.cs
+private DispatcherTimer timer;
+private int basetime;
+public string RecordSelect { get; set; }
+public string recordURL;
+public string listURL;
+public RootObject Ro;
+public AcList acList;

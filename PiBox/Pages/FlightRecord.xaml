@@ -53,7 +53,8 @@
         </Grid>
         <TextBlock x:Name="_flightnumber" FontFamily="/Assets/BSC-Reg.ttf#Barlow" HorizontalAlignment="Left" Height="58" Margin="10,60,0,0" Text="_flightnumber" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="442" FontSize="36" FontWeight="Bold" />
         <Rectangle HorizontalAlignment="Left" Height="14" Margin="494,347,0,0" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="_couFlagImg" HorizontalAlignment="Center" Height="64" Margin="0,36,0,0" VerticalAlignment="Top" Width="64"/>
+        <Image x:Name="_couFlagImg" HorizontalAlignment="Center" Height="64" Margin="0,36,0,0" VerticalAlignment="Top" Width="64" Source="/Assets/images/flags/Unknown.png"/>
+        <TextBlock x:Name="_tboxCountry" Text="Country" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115"/>
         <Image x:Name="_arrow" HorizontalAlignment="Left" Height="16" Margin="778,322,0,0" VerticalAlignment="Top" Width="16" Source="/Assets/images/ui/arrow.png" Visibility="Collapsed" />
         <TextBlock x:Name="_airline" FontFamily="/Assets/BSC-Reg.ttf#Barlow" HorizontalAlignment="Left" Height="60" Margin="10,0,0,0" Text="_airline" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="442" FontSize="42" FontWeight="Bold" />
         <TextBlock x:Name="_date" HorizontalAlignment="Left" Margin="695,0,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Center"/>

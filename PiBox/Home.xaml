@@ -25,13 +25,27 @@
         <TextBlock x:Name="_date" HorizontalAlignment="Left" TextAlignment="Center" Margin="360,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="--/--/--" Width="140"/>
         <TextBlock x:Name="_weather" HorizontalAlignment="Left" TextAlignment="Center" Margin="502,83,0,0" Text="Sunny" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
         <Border BorderBrush="Black" HorizontalAlignment="Left" Height="22" Margin="561,50,0,0" VerticalAlignment="Top" Width="22" BorderThickness="1"/>
-        <Button x:Name="_oldButt" Content="Button" HorizontalAlignment="Left" Margin="205,510,0,0" VerticalAlignment="Top" Tapped="_navOld"/>
         <FlipView HorizontalAlignment="Left" Margin="82,160,0,120" Width="878" Background="Transparent">
-            <Button x:Name="_buttFlights" Content="Flights" HorizontalAlignment="Center" Height="242" VerticalAlignment="Center" Width="242" Tapped="_navFlights"/>
-            <Button x:Name="_buttWeather" Content="Weather" HorizontalAlignment="Center" Height="242" VerticalAlignment="Center" Width="242" Tapped="_navWeather"/>
-            <Button x:Name="_buttSettings" Content="Settings" HorizontalAlignment="Center" Height="242" VerticalAlignment="Center" Width="242" Tapped="_navSettings"/>
+            <Button x:Name="_buttFlights" HorizontalAlignment="Center" Height="242" VerticalAlignment="Center" Width="242" Tapped="_navFlights" Background="Transparent">
+                <StackPanel>
+                    <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE709;" FontSize="50" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="50" Height="50" />
+                    <TextBlock>Flights</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="_buttWeather" HorizontalAlignment="Center" Height="242" VerticalAlignment="Center" Width="242" Tapped="_navWeather" Background="Transparent">
+                <StackPanel>
+                    <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE753;" FontSize="50" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="50" Height="50" />
+                    <TextBlock>Weather</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="_buttSettings" HorizontalAlignment="Center" Height="242" VerticalAlignment="Center" Width="242" Tapped="_navSettings" Background="Transparent">
+                <StackPanel>
+                    <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE713;" FontSize="50" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="50" Height="50" />
+                    <TextBlock>Settings</TextBlock>
+                </StackPanel>
+            </Button>
         </FlipView>
-
-
+        <Button x:Name="_butReset" Content="Reset!" HorizontalAlignment="Left" Margin="82,485,0,0" VerticalAlignment="Top" Tapped="_buttReset"/>
+        <TextBlock x:Name="_tbReset" HorizontalAlignment="Left" Margin="170,491,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </Page>
